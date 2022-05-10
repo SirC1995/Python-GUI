@@ -10,6 +10,7 @@ class Application(Frame):
         super(Application, self).__init__(master)
         self.grid()
         self.create_widgets()
+        self.draw_number()
 
     def create_widgets(self):
         """Widżety potrzebne do gry"""
@@ -19,27 +20,27 @@ class Application(Frame):
               text="Zgadnij liczbę którą wylosował komputer"
               ).grid(row=0, column=0, columnspan=2, sticky=W)
 
-        # przycisk losujący liczbę
+        # przycisk losujący liczbę w kolejnych grach
         Button(self,
                text="Wylosuj liczbę dla komputera",
                command=self.draw_number
-               ).grid(row=1, column=0, sticky=W)
+               ).grid(row=2, column=0, sticky=W)
 
         # miejsce wpisania zgadywanej liczby
         Label(self,
               text="Podaj liczbę: "
-              ).grid(row=2, column=0, sticky=W)
+              ).grid(row=1, column=0, sticky=W)
         self.number_ent = Entry(self)
-        self.number_ent.grid(row=2, column=1, sticky=W)
+        self.number_ent.grid(row=1, column=1, sticky=W)
 
         # przycisk sprawdzający
         Button(self,
                text="Kliknij, aby sprawdzić czy trafiłeś",
                command=self.check_number
-               ).grid(row=3, column=0, sticky=W)
+               ).grid(row=2, column=1, sticky=W)
 
         self.answer_txt = Text(self, width=75, height=10, wrap=WORD)
-        self.answer_txt.grid(row=4, column=0, columnspan=4)
+        self.answer_txt.grid(row=3, column=0, columnspan=4)
 
     def draw_number(self):
         """Wylosuj liczbę dla komputera"""
